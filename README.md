@@ -166,6 +166,20 @@ Marks the ride as completed and makes the driver available again.
 - **Java 17+**
 - **Maven 3.6+**
 
+### Setup (First Time Only)
+
+First, navigate to the project directory where `pom.xml` is located:
+
+```bash
+cd ride-matching-service
+```
+
+Then run the build command to download dependencies:
+
+```bash
+mvn clean install
+```
+
 ### Run
 
 ```bash
