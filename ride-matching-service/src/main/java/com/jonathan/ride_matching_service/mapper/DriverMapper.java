@@ -9,6 +9,7 @@ public class DriverMapper {
 
     public DriverResponse toDriverResponse(Driver driver) {
         return new DriverResponse(
+                driver.getId(),
                 driver.getLocation().x(),
                 driver.getLocation().y(),
                 driver.isAvailable()
