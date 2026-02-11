@@ -2,6 +2,7 @@ package com.jonathan.ride_matching_service.service.impl;
 
 import com.jonathan.ride_matching_service.dto.DriverResponse;
 import com.jonathan.ride_matching_service.exception.NotFoundException;
+import com.jonathan.ride_matching_service.exception.RepositorySaveException;
 import com.jonathan.ride_matching_service.mapper.DriverMapper;
 import com.jonathan.ride_matching_service.model.Driver;
 import com.jonathan.ride_matching_service.model.Location;
@@ -24,8 +25,12 @@ public class DriverServiceImpl implements DriverService {
 
     @Override
     public void registerDriver(String driverId, Location location) {
-        Driver driver = new Driver(driverId, location);
-        driverRepository.save(driver);
+        try {
+            Driver driver = new Driver(driverId, location);
+            driverRepository.save(driver);
+        } catch (Exception e) {
+            throw new RepositorySaveException("Failed to register driver: " + driverId);
+        }
     }
 
     @Override

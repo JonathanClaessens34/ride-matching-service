@@ -7,7 +7,9 @@ public class Ride {
     private final String id;
     @Getter
     private final String riderId;
+    @Getter
     private final Driver driver;
+    @Getter
     private final Location pickupLocation;
     @Getter
     private boolean completed;

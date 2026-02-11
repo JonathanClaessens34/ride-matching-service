@@ -5,6 +5,7 @@ import com.jonathan.ride_matching_service.dto.DriverResponse;
 import com.jonathan.ride_matching_service.dto.UpdateDriverRequest;
 import com.jonathan.ride_matching_service.model.Location;
 import com.jonathan.ride_matching_service.service.DriverService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -24,7 +25,7 @@ public class DriverController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> registerDriver(@RequestBody DriverRegistrationRequest request) {
+    public ResponseEntity<Void> registerDriver(@RequestBody @Valid DriverRegistrationRequest request) {
         driverService.registerDriver(
                 request.driverId(),
                 new Location(request.x(), request.y())

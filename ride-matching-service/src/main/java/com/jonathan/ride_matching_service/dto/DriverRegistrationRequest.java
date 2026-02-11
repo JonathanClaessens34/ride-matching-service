@@ -1,7 +1,9 @@
 package com.jonathan.ride_matching_service.dto;
 
+import jakarta.validation.constraints.NotNull;
+
 public record DriverRegistrationRequest(
-        String driverId,
-        double x,
-        double y
+        @NotNull String driverId,
+        @NotNull double x,
+        @NotNull double y
 ) {}
