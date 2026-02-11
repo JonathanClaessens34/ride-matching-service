@@ -26,6 +26,10 @@ public class DriverServiceImpl implements DriverService {
     @Override
     public void registerDriver(String driverId, Location location) {
         try {
+            if (driverRepository.findById(driverId) != null) {
+                throw new IllegalArgumentException("Driver already exists");
+            }
+
             Driver driver = new Driver(driverId, location);
             driverRepository.save(driver);
         } catch (Exception e) {
