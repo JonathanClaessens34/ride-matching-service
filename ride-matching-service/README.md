@@ -159,6 +159,42 @@ Marks the ride as completed and makes the driver available again.
 
 ---
 
+### 5️⃣ Get Available Drivers
+
+**`GET /rides/available-drivers?x={x}&y={y}&limit={limit}`**
+
+Returns a list of the nearest available drivers to a location, sorted by distance in ascending order.
+
+**Query Parameters:**
+- `x` (required) – X coordinate of the location
+- `y` (required) – Y coordinate of the location
+- `limit` (optional, default: 5) – Maximum number of drivers to return
+
+**Example Request:**
+```
+GET /rides/available-drivers?x=12&y=22&limit=10
+```
+
+**Response:**
+```json
+[
+  {
+    "id": "driver-1",
+    "x": 10,
+    "y": 20,
+    "available": true
+  },
+  {
+    "id": "driver-2",
+    "x": 15,
+    "y": 25,
+    "available": true
+  }
+]
+```
+
+---
+
 ## 🚀 Running the Application
 
 ### Prerequisites
